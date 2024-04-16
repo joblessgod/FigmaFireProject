@@ -11,7 +11,7 @@ import { FaCartArrowDown } from "react-icons/fa6";
 import { MdOutlinePhoneInTalk } from "react-icons/md";
 
 
-export default function Header() {
+export default function RootElement() {
     return (
         <>
             <header>
