@@ -3,17 +3,17 @@ import { createBrowserRouter, RouterProvider, } from "react-router-dom";
 import Header from "./components/Header";
 
 /* Pages Import */
-import Login from "./pages/login/Login";
 import Home from "./pages/home/Home";
 import Products from "./pages/products/Products";
 import Blogs from "./pages/blogs/Blogs";
 import Contact from "./pages/contact/Contact";
+import Login from "./pages/login/Login";
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Header/>,
+    element: <Header />,
     children: [
       {
         path: "",
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: (
-          <h1><Login/></h1>
+          <h1><Login /></h1>
         ),
       }
     ]
