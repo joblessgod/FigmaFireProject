@@ -12,6 +12,9 @@
   .leading-auto {
     @apply leading-[normal];
   }
+  .btn {
+    @apply rounded-sm bg-secondary px-8 py-4 text-white;
+  }
 }
 
 * {

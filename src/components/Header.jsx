@@ -61,7 +61,7 @@ export default function Header() {
 
         {/* Button Home Nav */}
         <nav className="container justify-between pb-[12px] pt-[18px] sm:flex">
-          <div className="flex w-full md:w-auto items-center justify-between lg:w-auto lg:gap-[90px]">
+          <div className="flex w-full items-center justify-between md:w-auto lg:w-auto lg:gap-[90px]">
             <a
               className="leading-auto font-Josefin text-[34px] text-primary-dark"
               href="/"
@@ -70,10 +70,10 @@ export default function Header() {
             </a>
 
             <div
-              className={`${isMenuOpen ? "translate-x-0" : "translate-x-full"} fixed bottom-0 right-0 top-0 flex w-[50%]  flex-col bg-[#313338] p-12 text-white md:text-black transition-all ease-linear md:static md:w-auto md:flex-row md:gap-4 md:bg-transparent md:p-0 `}
+              className={`${isMenuOpen ? "translate-x-0" : "translate-x-full"} fixed bottom-0 right-0 top-0 flex w-[50%] flex-col bg-[#313338] p-12 text-white transition-all ease-linear md:static md:w-auto md:flex-row md:gap-4 md:bg-transparent md:p-0 md:text-black `}
             >
               <IoMdClose
-                className="cursor-pointer text-[4rem] hover:text-red-600 md:hidden"
+                className="cursor-pointer text-[4rem] md:hidden md:hover:text-red-600"
                 onClick={toggleSideMenu}
               >
                 Close
@@ -114,6 +114,7 @@ export default function Header() {
               type="text"
               placeholder="Search"
             />
+
             <button className=" bg-secondary px-2">
               <IoSearch className="inline-block" />
             </button>

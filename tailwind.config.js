@@ -1,6 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
-
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -25,6 +24,11 @@ export default {
         xl: "1280px", // normal desktop
         xxl: "1400px", // huge monitor
       },
+      BackgroundImages:{
+        'banner1': "url('/banner-1.png')",
+        'banner2': "url('/banner-2.png')",
+        'banner3': "url('/banner-3.png')",
+      }
     }
   },
   plugins: [],
