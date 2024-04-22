@@ -24,10 +24,10 @@ export default {
         xl: "1280px", // normal desktop
         xxl: "1400px", // huge monitor
       },
-      BackgroundImages:{
-        'banner1': "url('/banner-1.png')",
-        'banner2': "url('/banner-2.png')",
-        'banner3': "url('/banner-3.png')",
+      backgroundImage:{
+        'banner-1': "url('/assets/banner-1.png')",
+        'banner-2': "url('/assets/banner-2.png')",
+        'banner-3': "url('/assets/banner-3.png')",
       }
     }
   },

@@ -62,23 +62,23 @@ export default function Home() {
     <>
       {/* <div className="absolute box bg-orange-200 left-6 top-3 z-10"></div>
     <div className="absolute box bg-black z-0  "></div>
-    <hr /> */}
+  <hr /> */}
 
       <Slider {...settings}>
         {banners.map((el) => {
           return (
             <Banner
-              background={el.background}
-              label={el.label}
-              heading={el.heading}
-              description={el.description}
-              redirectUrl={el.redirectUrl}
+            background={el.background}
+            label={el.label}
+            heading={el.heading}
+            description={el.description}
+            redirectUrl={el.redirectUrl}
             />
           );
         })}
         {/* <Banner background={"bg-banner-1"} />
         <Banner background={"bg-banner-2"} />
-        <Banner background={"bg-banner-3"} /> */}
+      <Banner background={"bg-banner-3"} /> */}
       </Slider>
 
       <Product />
