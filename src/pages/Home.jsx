@@ -20,7 +20,7 @@ export default function Home() {
         breakpoint: 1024,
         settings: {
           slidesToShow: 2,
-        },
+        },g
       },
       {
         breakpoint: 576,
