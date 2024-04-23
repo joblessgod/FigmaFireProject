@@ -25,8 +25,8 @@ export default function Header() {
       <header className="">
         {/* upper Nav */}
         <div className=" bg-primary">
-          <nav className="font-josefin py-[14px] text-center text-white sm:container sm:flex sm:justify-between">
-            <div className="sm:flex sm:gap-4">
+          <nav className="font-josefin py-[14px]  text-white sm:container sm:flex sm:justify-between">
+            <div className="sm:flex sm:gap-4 text-center">
               <p>
                 <IoMail className="inline-block align-middle" />
                 mhhasanul@gmail.com
@@ -37,8 +37,8 @@ export default function Header() {
               </p>
             </div>
 
-            <div className="">
-              <span className="font-sans">
+            <div className="text-center ">
+              <span className="font-sans ">
                 English
                 <FaAngleDown className="inline-block" />
               </span>
@@ -70,7 +70,7 @@ export default function Header() {
             </a>
 
             <div
-              className={`${isMenuOpen ? "translate-x-0" : "translate-x-full"} fixed bottom-0 right-0 top-0 flex w-[50%] flex-col bg-[#313338] p-12 text-white transition-all ease-linear md:static md:w-auto md:flex-row md:gap-4 md:bg-transparent md:p-0 md:text-black `}
+              className={`${isMenuOpen ? "translate-x-0" : "translate-x-full"} fixed bottom-0 right-0 top-0 z-30 flex w-[50%] flex-col bg-[#313338] p-12 text-white transition-all ease-linear md:static md:w-auto md:flex-row md:gap-4 md:bg-transparent md:p-0 md:text-black`}
             >
               <IoMdClose
                 className="cursor-pointer text-[4rem] md:hidden md:hover:text-red-600"

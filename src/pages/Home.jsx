@@ -1,9 +1,11 @@
-import React from "react";
 import Banner from "../pages/home/components/Banner";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Product from "../pages/Product";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { FaCartPlus } from "react-icons/fa";
 
 export default function Home() {
   const settings = {
@@ -20,7 +22,7 @@ export default function Home() {
         breakpoint: 1024,
         settings: {
           slidesToShow: 2,
-        },g
+        },
       },
       {
         breakpoint: 576,
@@ -58,6 +60,19 @@ export default function Home() {
     },
   ];
 
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://ecommerce-sagartmg2.vercel.app/api/products/trending")
+      .then((res) => {
+        console.log(res);
+        setProducts(res.data.data);
+        isLoading(false);
+      })
+      .catch((err) => {});
+  }, []);
+
   return (
     <>
       {/* <div className="absolute box bg-orange-200 left-6 top-3 z-10"></div>
@@ -68,12 +83,12 @@ export default function Home() {
         {banners.map((el) => {
           return (
             <Banner
-            background={el.background}
-            label={el.label}
-            heading={el.heading}
-            description={el.description}
-            redirectUrl={el.redirectUrl}
-            />
+              background={el.background}
+              label={el.label}
+              heading={el.heading}
+              description={el.description}
+              redirectUrl={el.redirectUrl}
+             className="z-0"/>
           );
         })}
         {/* <Banner background={"bg-banner-1"} />
@@ -81,7 +96,11 @@ export default function Home() {
       <Banner background={"bg-banner-3"} /> */}
       </Slider>
 
-      <Product />
+      <div className="container grid   gap-4 py-[116px] sm:py-[130px] md:grid-cols-2 md:py-[148px] lg:grid-cols-4 lg:py-[166px] xl:py-[188px] xxl:py-[210px]">
+        {products.map((el) => {
+          return <Product name={el.name} price={el.price} image={el.image} />;
+        })}
+      </div>
     </>
   );
 }

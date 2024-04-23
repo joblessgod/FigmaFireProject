@@ -1,41 +1,18 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { FaCartPlus } from "react-icons/fa";
 
-export default function Products() {
-  const [products, setProducts] = useState([]);
-
-  const fetchProfuct = () => {
-    let url = `https://ecommerce-sagartmg2.vercel.app/api/products/trending`;
-    axios.get(url).then((res) => {
-      // setProducts(res.data.data)
-      console.log(res.data.data);
-    });
-  };
-
-  useEffect(() => {
-    fetchProfuct();
-  }, []);
-
+export default function Product(props) {
   return (
-    <>
-    {JSON.stringify(products)}
-        {/* <ul>
-          {products.map((el, idx) => {
-            return <li key={idx}>{el.name}</li>;
-          })}
-        </ul> */}
-
-
-      <div className="container py-[116px] sm:py-[130px] md:py-[148px] lg:py-[166px] xl:py-[188px] xxl:py-[210px]">
-        {products.map((el) => {
-          return (
-            <div className="bg-[#695f712e] pb-[10px] pt-[32px] shadow-[0px_0px_25px_0px_rgba(0,0,0,0.1)]">
-              <img src="/chair-3.png" alt="" className=" " />
-              <p className="p-[15px] text-center">Cantilever chair</p>
-            </div>
-          );
-        })}
+    <div className=" group relative bg-primary-light   shadow-[0px_0px_25px_0px_rgba(0,0,0,0.1)]  ">
+      <div className=" absolute left-[11px] top-[11px] hidden h-[30px] w-[30px] items-center justify-center rounded-full border border-primary transition-all group-hover:flex">
+        <FaCartPlus className="text-primary" />
       </div>
-    </>
+      <img src={props.image} className="h-[150px] w-full object-cover mx-auto mb-[10px] mt-[32px] " />
+      <div className="bg-white p-[15px]  text-center  transition-all group-hover:bg-primary  group-hover:text-white">
+        <p>{props.name}</p>
+        <p>Code - Y523201</p>
+        <p>${props.price}</p>
+      </div>
+    </div>
   );
-}
+} 
