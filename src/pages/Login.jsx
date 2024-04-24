@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import footerImg from "/assets/loginFooter.png";
 
 export default function () {
   return (
@@ -21,7 +22,7 @@ export default function () {
       </div>
 
       {/* Login Panel */}
-      <div className="relative mt-[57px] text-center shadow-[0px_0px_25px_0px_rgba(0,0,0,0.1)] sm:w-[356px]">
+      <div className="mx-auto mt-[67px] flex w-[302px] items-center justify-center p-[28px] shadow-lg md:w-[544px]">
         <div className="font-lato space-y-2 p-[24px]  ">
           <div>
             <h1 className="mb-0 text-center font-Josefin text-[32px] font-bold">
@@ -58,6 +59,8 @@ export default function () {
           </a>
         </div>
       </div>
+      <img src={footerImg} className="container my-[40px]" />
     </>
   );
 }
+``

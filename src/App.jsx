@@ -5,7 +5,7 @@ import Header from "./components/Header";
 /* Pages Import */
 import Login from "./pages/Login";
 import Home from "./pages/Home";
-import Products from "./pages/Product";
+import Products from "./pages/Products";
 import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
 

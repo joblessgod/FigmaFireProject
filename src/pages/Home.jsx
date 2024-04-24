@@ -2,7 +2,7 @@ import Banner from "../pages/home/components/Banner";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import Product from "../pages/Product";
+import Products from "../pages/Products";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { FaCartPlus } from "react-icons/fa";
@@ -98,7 +98,7 @@ export default function Home() {
 
       <div className="container grid   gap-4 py-[116px] sm:py-[130px] md:grid-cols-2 md:py-[148px] lg:grid-cols-4 lg:py-[166px] xl:py-[188px] xxl:py-[210px]">
         {products.map((el) => {
-          return <Product name={el.name} price={el.price} image={el.image} />;
+          return <Products name={el.name} price={el.price} image={el.image} />;
         })}
       </div>
     </>
