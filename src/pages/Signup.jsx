@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import footerImg from "/assets/loginFooter.png";
 
-export default function Login() {
+export default function Signup() {
   return (
     <>
       {/* Top Div with text */}
@@ -30,10 +30,10 @@ export default function Login() {
         <div className="font-lato space-y-2 p-[24px]  ">
           <div>
             <h1 className="mb-0 text-center font-Josefin text-[32px] font-bold">
-              Login
+              Sign Up
             </h1>
             <p className="mt-0 text-center text-[15px] text-[#9096B2]">
-              Please login using account detail bellow.
+              Please signup using account detail bellow.
             </p>
           </div>
 
@@ -56,21 +56,17 @@ export default function Login() {
             Forget Your Password
           </a>
 
-          <div className="text-gray-light">
-            <input type="checkbox"></input> Stay logged in
-          </div>
-
           <button className="w-full rounded-[3px] bg-secondary py-[10px] text-white hover:bg-secondary-dark hover:shadow-[0px_3px_25px_0px_rgba(0,0,0,0.15)]">
             Sign in
           </button>
           <p className="text-gray-light">
-            Don’t have an Account?
+            Have an Account?
             <Link
-              to={"/Signup"}
+              to={"/login"}
               title="Create a New Account"
               className="text-[#558cf3]"
             >
-              Create account
+              Login
             </Link>
           </p>
         </div>
