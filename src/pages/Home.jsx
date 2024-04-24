@@ -5,7 +5,6 @@ import Slider from "react-slick";
 import Products from "../pages/Products";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { FaCartPlus } from "react-icons/fa";
 
 export default function Home() {
   const settings = {

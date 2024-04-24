@@ -26,7 +26,7 @@ export default function Header() {
         {/* upper Nav */}
         <div className=" bg-primary">
           <nav className="font-josefin py-[14px]  text-white sm:container sm:flex sm:justify-between">
-            <div className="sm:flex sm:gap-4 text-center">
+            <div className="text-center sm:flex sm:gap-4">
               <p>
                 <IoMail className="inline-block align-middle" />
                 mhhasanul@gmail.com
@@ -62,12 +62,12 @@ export default function Header() {
         {/* Button Home Nav */}
         <nav className="container justify-between pb-[12px] pt-[18px] sm:flex">
           <div className="flex w-full items-center justify-between md:w-auto lg:w-auto lg:gap-[90px]">
-            <a
-              className="leading-auto font-Josefin text-[34px] text-primary-dark"
-              href="/"
+            <Link
+              to={"/"}
+              className="leading-auto font-semibold font-Josefin text-[34px] text-primary-dark hover:text-secondary"
             >
               Hekto
-            </a>
+            </Link>
 
             <div
               className={`${isMenuOpen ? "translate-x-0" : "translate-x-full"} fixed bottom-0 right-0 top-0 z-30 flex w-[50%] flex-col bg-[#313338] p-12 text-white transition-all ease-linear md:static md:w-auto md:flex-row md:gap-4 md:bg-transparent md:p-0 md:text-black`}
