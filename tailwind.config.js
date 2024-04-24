@@ -16,7 +16,7 @@ export default {
         "primary-dark": "#0D0E43",
         secondary: "#FB2E86",
         "secondary-dark": "#c22367",
-        "gray-dark":"#9096B2"
+        "gray-light":"#9096B2"
       },
       screens: {
         /* we should start with mobile. */
