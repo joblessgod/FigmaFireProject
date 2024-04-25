@@ -1,73 +1,81 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import footerImg from "/assets/loginFooter.png";
+import BreadCrumb from "../components/BreadCrumb";
+import axios from "axios";
 
 export default function Signup() {
+  function handleSubmit(e) {
+    e.preventDefault();
+    axios.post("https://ecommerce-sagartmg2.vercel.app/api/users/signup");
+  }
   return (
     <>
-      {/* Top Div with text */}
-      <div className="container relative  bg-[#F6F5FF]">
-        <div className=" mb-8 py-[39px] sm:py-[47px] md:py-[57px] lg:py-[68px] xl:py-[82px] xxl:py-[98px]">
-          {/* text */}
-          <h1 className=" font-Josefin text-[18px] sm:text-[16px] lg:text-[20px] xl:text-[25px] xxl:text-[36px]">
-            My Account
-          </h1>
-
-          <div className=" flex gap-[5px] font-Lato text-[14px]">
-            <Link to="/" className="hover:text-secondary">
-              Home .
-            </Link>
-            <Link to="/pages" className="hover:text-secondary">
-              Pages .
-            </Link>
-            <span className="text-secondary">My Account</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Login Panel */}
+      <BreadCrumb />
       <div className="mx-auto mt-[67px] flex w-[302px] items-center justify-center p-[28px] shadow-lg md:w-[544px]">
         <div className="font-lato space-y-2 p-[24px]  ">
           <div>
             <h1 className="mb-0 text-center font-Josefin text-[32px] font-bold">
-              Sign Up
+              Signup
             </h1>
             <p className="mt-0 text-center text-[15px] text-[#9096B2]">
-              Please signup using account detail bellow.
+              Please login using account detail bellow.
             </p>
           </div>
 
-          <div className="space-y-4 ">
-            <input
-              className="border-gray-light h-[36px] w-full rounded-[2px] border pl-[13px] focus:shadow-[0px_6px_25px_0px_rgba(0,0,0,0.4)] focus:outline-none sm:h-[43px] md:h-[52px]"
-              type="email"
-              title="Add Valid Email Address"
-              placeholder="Email Address"
-            />
-            <input
-              className="border-gray-light h-[36px] w-full rounded-[2px] border pl-[13px] focus:shadow-[0px_6px_25px_0px_rgba(0,0,0,0.4)] focus:outline-none sm:h-[43px] md:h-[52px]"
-              type="password"
-              title="Make Stronge Password"
-              placeholder="Password"
-            />
-          </div>
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <input
+                className="form-control"
+                name="fullName"
+                type="text"
+                placeholder="Name"
+                required
+              />
+            </div>
 
-          <a href="/forgetPassword" className="text-[#9096B2]">
-            Forget Your Password
-          </a>
+            <div className="form-group">
+              <input
+                className="form-control"
+                name="email"
+                type="email"
+                placeholder="Email Address"
+                required
+              />
+            </div>
 
-          <button className="w-full rounded-[3px] bg-secondary py-[10px] text-white hover:bg-secondary-dark hover:shadow-[0px_3px_25px_0px_rgba(0,0,0,0.15)]">
-            Sign in
-          </button>
+            <div className="form-group">
+              <input
+                className="form-control"
+                name="password"
+                type="password"
+                required
+                placeholder="Password"
+              />
+            </div>
+
+            <div className="form-group">
+              <select placeholder="Role" className="form-control" name="role">
+                <option value="">Select Role</option>
+                <option value="seller">seller</option>
+                <option value="buyer">buyer</option>
+              </select>
+            </div>
+
+            <a href="/forgetPassword" className="text-sm text-[#9096B2]">
+              Forget Your Password ?
+            </a>
+
+            <button type="submit" className="btn w-full">
+              Sign in
+            </button>
+          </form>
+
           <p className="text-gray-light">
-            Have an Account?
-            <Link
-              to={"/login"}
-              title="Create a New Account"
-              className="text-[#558cf3]"
-            >
-              Login
-            </Link>
+            Don’t have an Account?
+            <a href="/Signup" className="text-[#558cf3]">
+              Create account
+            </a>
           </p>
         </div>
       </div>
