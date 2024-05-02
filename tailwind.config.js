@@ -14,8 +14,10 @@ export default {
       colors: {
         primary: "#7E33E0",
         "primary-dark": "#0D0E43",
+        "primary-light": "#8F3AFF",
         secondary: "#FB2E86",
         "secondary-dark": "#c22367",
+        "secondary-light": "#f56ca7",
         "gray-light":"#9096B2"
       },
       screens: {

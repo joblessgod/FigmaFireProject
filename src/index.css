@@ -13,11 +13,17 @@
     @apply leading-[normal];
   }
   .btn {
-    @apply rounded-sm bg-secondary px-8 py-4 text-white;
+    @apply rounded-sm bg-secondary px-8 py-4 text-white disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-black;
   }
 
   .form-control {
     @apply mb-3 h-[36px] w-full rounded-[2px] border border-gray-light pl-[13px] focus:shadow-[0px_6px_25px_0px_rgba(0,0,0,0.4)] focus:outline-none sm:h-[43px] md:h-[52px];
+  }
+  .dropdown {
+    @apply bg-primary-light cursor-pointer border-none;
+  }
+  .shadow {
+    @apply shadow-[0px_6px_25px_0px_rgba(0,0,0,0.4)];
   }
 }
 

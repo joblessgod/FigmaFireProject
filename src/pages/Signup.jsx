@@ -1,13 +1,41 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import footerImg from "/assets/loginFooter.png";
 import BreadCrumb from "../components/BreadCrumb";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export default function Signup() {
+  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const [formDara, setFormData] = useState({
+    name: "Sanchit",
+    email: "sanchit@gmail.com",
+    password: "sassword",
+    role: "seller",
+  });
+
   function handleSubmit(e) {
     e.preventDefault();
-    axios.post("https://ecommerce-sagartmg2.vercel.app/api/users/signup");
+    setIsLoading(true);
+    axios
+      .post("https://ecommerce-sagartmg2.vercel.app/api/users/signup", {
+        name: e.target.name.value,
+        email: e.target.email.value,
+        password: e.target.password.value,
+        role: e.target.role.value,
+      })
+      .then((res) => {
+        toast.success("Succesfully.");
+        setIsLoading(false);
+        // navigate("/login");
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("someting went wrong.");
+        setIsLoading(false);
+      });
   }
   return (
     <>
@@ -19,7 +47,7 @@ export default function Signup() {
               Signup
             </h1>
             <p className="mt-0 text-center text-[15px] text-[#9096B2]">
-              Please login using account detail bellow.
+              Please signup using account detail bellow.
             </p>
           </div>
 
@@ -27,7 +55,11 @@ export default function Signup() {
             <div className="form-group">
               <input
                 className="form-control"
-                name="fullName"
+                name="name"
+                onChange={(e) => {
+                  setFormData(e.target.value);
+                }}
+                value={formDara.name}
                 type="text"
                 placeholder="Name"
                 required
@@ -38,6 +70,7 @@ export default function Signup() {
               <input
                 className="form-control"
                 name="email"
+                value={formDara.email}
                 type="email"
                 placeholder="Email Address"
                 required
@@ -48,6 +81,7 @@ export default function Signup() {
               <input
                 className="form-control"
                 name="password"
+                value={formDara.password}
                 type="password"
                 required
                 placeholder="Password"
@@ -55,27 +89,28 @@ export default function Signup() {
             </div>
 
             <div className="form-group">
-              <select placeholder="Role" className="form-control" name="role">
+              <select
+                placeholder="Role"
+                className="form-control"
+                name="role"
+                value={formDara.role}
+              >
                 <option value="">Select Role</option>
                 <option value="seller">seller</option>
                 <option value="buyer">buyer</option>
               </select>
             </div>
 
-            <a href="/forgetPassword" className="text-sm text-[#9096B2]">
-              Forget Your Password ?
-            </a>
-
-            <button type="submit" className="btn w-full">
-              Sign in
+            <button disabled={isLoading} type="submit" className="btn w-full">
+              {!isLoading ? "Sign in" : "Loading..."}
             </button>
           </form>
 
           <p className="text-gray-light">
-            Don’t have an Account?
-            <a href="/Signup" className="text-[#558cf3]">
-              Create account
-            </a>
+            Have an Account?
+            <Link to={"/login"} className="text-[#558cf3]">
+              Login
+            </Link>
           </p>
         </div>
       </div>

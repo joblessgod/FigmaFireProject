@@ -7,7 +7,7 @@ export default function Login() {
   return (
     <>
       {/* Top Div with text */}
-      <BreadCrumb/>
+      <BreadCrumb />
       {/* Login Panel */}
       <div className="mx-auto mt-[67px] flex w-[302px] items-center justify-center p-[28px] shadow-lg md:w-[544px]">
         <div className="font-lato space-y-2 p-[24px]  ">

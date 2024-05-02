@@ -78,7 +78,7 @@ export default function Home() {
     <div className="absolute box bg-black z-0  "></div>
   <hr /> */}
 
-      <Slider {...settings}>
+      {/* <Slider {...settings}>
         {banners.map((el) => {
           return (
             <Banner
@@ -90,10 +90,7 @@ export default function Home() {
              className="z-0"/>
           );
         })}
-        {/* <Banner background={"bg-banner-1"} />
-        <Banner background={"bg-banner-2"} />
-      <Banner background={"bg-banner-3"} /> */}
-      </Slider>
+      </Slider> */}
 
       <div className="container grid   gap-4 py-[116px] sm:py-[130px] md:grid-cols-2 md:py-[148px] lg:grid-cols-4 lg:py-[166px] xl:py-[188px] xxl:py-[210px]">
         {products.map((el) => {
