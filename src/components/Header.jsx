@@ -25,7 +25,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="">
+      <header>
         {/* upper Nav */}
         <div className=" bg-primary">
           <nav className="font-josefin py-[14px]  text-white sm:container sm:flex sm:justify-between">
@@ -45,13 +45,11 @@ export default function Header() {
 
             <div className="justify-between">
               <select className="bg-transparent font-sans ">
-                English
                 <FaAngleDown className="inline-block" />
                 <option className="dropdown">English</option>
+                <option className="dropdown">Korean</option>
                 <option className="dropdown">Nepali</option>
                 <option className="dropdown">Hindi</option>
-                <option className="dropdown">Japanese</option>
-                <option className="dropdown">Korean</option>
               </select>
               {/* <span className="font-sans " >
                   USD
@@ -60,11 +58,11 @@ export default function Header() {
 
               {/* <select> */}
               <select className="bg-transparent font-sans">
-                USD
                 <FaAngleDown className="inline-block" />
                 <option className="dropdown">USD</option>
-                <option className="dropdown">IND</option>
+                <option className="dropdown">KRR</option>
                 <option className="dropdown">NPR</option>
+                <option className="dropdown">INR</option>
               </select>
 
               <Link to="/login" className="font-sans">

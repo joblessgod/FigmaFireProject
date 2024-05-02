@@ -16,6 +16,7 @@ export default function Home() {
     autoplaySpeed: 2000,
     pauseOnHover: true,
     initialSlide: 0,
+    arrow: false,
     responsive: [
       {
         breakpoint: 1024,
@@ -74,11 +75,7 @@ export default function Home() {
 
   return (
     <>
-      {/* <div className="absolute box bg-orange-200 left-6 top-3 z-10"></div>
-    <div className="absolute box bg-black z-0  "></div>
-  <hr /> */}
-
-      {/* <Slider {...settings}>
+      <Slider {...settings}>
         {banners.map((el) => {
           return (
             <Banner
@@ -87,10 +84,11 @@ export default function Home() {
               heading={el.heading}
               description={el.description}
               redirectUrl={el.redirectUrl}
-             className="z-0"/>
+              className="z-0"
+            />
           );
         })}
-      </Slider> */}
+      </Slider>
 
       <div className="container grid   gap-4 py-[116px] sm:py-[130px] md:grid-cols-2 md:py-[148px] lg:grid-cols-4 lg:py-[166px] xl:py-[188px] xxl:py-[210px]">
         {products.map((el) => {

@@ -7,6 +7,7 @@ import Blogs from "./pages/Blogs";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Contact from "./pages/Contact";
+import Pages from "./pages/Pages";
 import Products from "./pages/Products";
 import RootComponent from "./components/RootComponent";
 
@@ -19,13 +20,14 @@ const router = createBrowserRouter([
         path: "",
         element: <Home />,
       },
-      {
-        path: "pages",
-        element: <h1>Pages</h1>,
-      },
+
       {
         path: "products",
         element: <Products />,
+      },
+      {
+        path: "pages",
+        element: <Pages />,
       },
       {
         path: "blogs",

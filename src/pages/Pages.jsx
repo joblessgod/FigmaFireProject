@@ -1,18 +1,17 @@
 import React from "react";
 import BreadCrumb from "../components/BreadCrumb";
 
-export default function Blogs() {
+export default function Pages() {
   return (
     <>
       <BreadCrumb
-        title={"Blogs"}
+        title={"Pages"}
         links={[
           { title: "Home", url: "/" },
-          { title: ". Pages", url: "/pages" },
-          { title: ". Blogs", url: "/blogs" },
+          { title: ". Pages", url: "/Pages" },
         ]}
       />
-      <div>Blogs</div>
+      <div>Pages</div>
     </>
   );
 }

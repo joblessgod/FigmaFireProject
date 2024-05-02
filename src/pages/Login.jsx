@@ -1,13 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import footerImg from "/assets/loginFooter.png";
 import BreadCrumb from "../components/BreadCrumb";
 
 export default function Login() {
   return (
     <>
       {/* Top Div with text */}
-      <BreadCrumb />
+      <BreadCrumb
+        title="Login"
+        links={[
+          { title: "Home", url: "/" },
+          { title: ". Pages", url: "/pages" },
+          { title: ". Login", url: "#" },
+        ]}
+      />
       {/* Login Panel */}
       <div className="mx-auto mt-[67px] flex w-[302px] items-center justify-center p-[28px] shadow-lg md:w-[544px]">
         <div className="font-lato space-y-2 p-[24px]  ">
@@ -49,7 +55,7 @@ export default function Login() {
           <p className="text-gray-light">
             Don’t have an Account?
             <Link
-              to={"/Signup"}
+              to={"/signup"}
               title="Create a New Account"
               className="text-[#558cf3]"
             >
@@ -58,7 +64,6 @@ export default function Login() {
           </p>
         </div>
       </div>
-      <img src={footerImg} className="container my-[40px]" />
     </>
   );
 }
