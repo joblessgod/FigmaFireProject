@@ -129,7 +129,7 @@ export default function Header() {
 
           <form className="hidden lg:flex">
             <input
-              className="border-primary-light border px-2 py-1 focus:border-secondary focus:outline-none focus:transition-all "
+              className="border border-primary-light px-2 py-1 focus:border-secondary focus:outline-none focus:transition-all "
               type="text"
               placeholder="Search"
             />

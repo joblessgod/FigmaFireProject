@@ -5,18 +5,22 @@ import Slider from "react-slick";
 import Products from "../pages/Products";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import Skeleton from "react-loading-skeleton";
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
+
   const settings = {
     dots: true,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 2000,
     pauseOnHover: true,
     initialSlide: 0,
     arrows: false,
+    dots:false,
     responsive: [
       {
         breakpoint: 1024,
@@ -68,7 +72,7 @@ export default function Home() {
       .then((res) => {
         console.log(res);
         setProducts(res.data.data);
-        isLoading(false);
+        setIsLoading(false);
       })
       .catch((err) => {});
   }, []);
@@ -76,6 +80,7 @@ export default function Home() {
   return (
     <>
       <Slider {...settings}>
+        {isLoading && <Skeleton className="h-[576px]" />}
         {banners.map((el) => {
           return (
             <Banner
@@ -92,8 +97,27 @@ export default function Home() {
 
       <div className="container grid   gap-4 py-[116px] sm:py-[130px] md:grid-cols-2 md:py-[148px] lg:grid-cols-4 lg:py-[166px] xl:py-[188px] xxl:py-[210px]">
         {products.map((el) => {
-          return <Products name={el.name} price={el.price} image={el.image} />;
+          return (
+            <>
+              <Products
+                key={el._id}
+                id={el._id}
+                name={el.name}
+                price={el.price}
+                image={el.image}
+              />
+            </>
+          );
         })}
+        {isLoading && (
+          <>
+            <Skeleton className="h-[250px]" />
+            <Skeleton className="h-[250px]" />
+            <Skeleton className="h-[250px]" />
+            <Skeleton className="h-[250px]" />
+          </>
+        )}
+        {!isLoading && products.length == 0 && <>no product found</>}
       </div>
     </>
   );
