@@ -9,7 +9,7 @@ export default function Signup() {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
 
-  const [formDara, setFormData] = useState({
+  const [formData, setFormData] = useState({
     name: "Sanchit",
     email: "sanchit@gmail.com",
     password: "sassword",
@@ -29,7 +29,7 @@ export default function Signup() {
       .then((res) => {
         toast.success("Succesfully.");
         setIsLoading(false);
-        // navigate("/login");
+        navigate("/login");
       })
       .catch((err) => {
         console.log(err);
@@ -43,6 +43,7 @@ export default function Signup() {
       title={"Sign Up"}
       links={[
         {title: "Home", url:"/"},
+        {title: ". Pages", url:"/pages"},
         {title: ". Signup", url:"#"},
       ]}
       />
@@ -65,7 +66,7 @@ export default function Signup() {
                 onChange={(e) => {
                   setFormData(e.target.value);
                 }}
-                value={formDara.name}
+                value={formData.name}
                 type="text"
                 placeholder="Name"
                 required
@@ -76,7 +77,7 @@ export default function Signup() {
               <input
                 className="form-control"
                 name="email"
-                value={formDara.email}
+                value={formData.email}
                 type="email"
                 placeholder="Email Address"
                 required
@@ -87,7 +88,7 @@ export default function Signup() {
               <input
                 className="form-control"
                 name="password"
-                value={formDara.password}
+                value={formData.password}
                 type="password"
                 required
                 placeholder="Password"
@@ -99,7 +100,7 @@ export default function Signup() {
                 placeholder="Role"
                 className="form-control"
                 name="role"
-                value={formDara.role}
+                value={formData.role}
               >
                 <option value="">Select Role</option>
                 <option value="seller">seller</option>

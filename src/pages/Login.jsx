@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import BreadCrumb from "../components/BreadCrumb";
+import axios from "axios";
 
 export default function Login() {
+  const [formData, setFormData] = useState({
+    email: "b@b.com",
+    password: "password",
+  });
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    axios.post("https://ecommerce-sagartmg2.vercel.app/api/users/login", {
+      email: e.target.email.value,
+      password: e.target.password.value,
+    });
+  }
+
   return (
     <>
       {/* Top Div with text */}
@@ -26,32 +40,44 @@ export default function Login() {
             </p>
           </div>
 
-          <div className="space-y-4 ">
-            <input
-              className="h-[36px] w-full rounded-[2px] border border-gray-light pl-[13px] focus:shadow-[0px_6px_25px_0px_rgba(0,0,0,0.4)] focus:outline-none sm:h-[43px] md:h-[52px]"
-              type="email"
-              title="Add Valid Email Address"
-              placeholder="Email Address"
-            />
-            <input
-              className="h-[36px] w-full rounded-[2px] border border-gray-light pl-[13px] focus:shadow-[0px_6px_25px_0px_rgba(0,0,0,0.4)] focus:outline-none sm:h-[43px] md:h-[52px]"
-              type="password"
-              title="Make Stronge Password"
-              placeholder="Password"
-            />
-          </div>
+          <form onSubmit={handleSubmit}>
+            <div className="space-y-4 ">
+              <input
+                className="h-[36px] w-full rounded-[2px] border border-gray-light pl-[13px] focus:shadow-[0px_6px_25px_0px_rgba(0,0,0,0.4)] focus:outline-none sm:h-[43px] md:h-[52px]"
+                type="email"
+                name="email"
+                onChange={(e) => {
+                  setFormData(e.target.value);
+                }}
+                value={formData.email}
+                title="Add Valid Email Address"
+                placeholder="Email Address"
+              />
+              <input
+                className="h-[36px] w-full rounded-[2px] border border-gray-light pl-[13px] focus:shadow-[0px_6px_25px_0px_rgba(0,0,0,0.4)] focus:outline-none sm:h-[43px] md:h-[52px]"
+                type="password"
+                name="password"
+                onChange={(e) => {
+                  setFormData(e.target.value);
+                }}
+                value={formData.password}
+                title="Make Stronge Password"
+                placeholder="Password"
+              />
+            </div>
 
-          <a href="/forgetPassword" className="text-[#9096B2]">
-            Forget Your Password
-          </a>
+            <a href="/forgetPassword" className="text-[#9096B2]">
+              Forget Your Password
+            </a>
 
-          <div className="text-gray-light">
-            <input type="checkbox"></input> Stay logged in
-          </div>
+            <div className="text-gray-light">
+              <input type="checkbox"></input> Stay logged in
+            </div>
 
-          <button className="w-full rounded-[3px] bg-secondary py-[10px] text-white hover:bg-secondary-dark hover:shadow-[0px_3px_25px_0px_rgba(0,0,0,0.15)]">
-            Sign in
-          </button>
+            <button className="w-full rounded-[3px] bg-secondary py-[10px] text-white hover:bg-secondary-dark hover:shadow-[0px_3px_25px_0px_rgba(0,0,0,0.15)]">
+              Sign in
+            </button>
+          </form>
           <p className="text-gray-light">
             Don’t have an Account?
             <Link

@@ -20,7 +20,7 @@ export default function Home() {
     pauseOnHover: true,
     initialSlide: 0,
     arrows: false,
-    dots:false,
+    dots: false,
     responsive: [
       {
         breakpoint: 1024,
