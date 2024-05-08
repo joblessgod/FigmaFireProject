@@ -12,7 +12,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
       <App />
-    </Provider>
     <ToastContainer
       theme="colored"
       closeOnClick
@@ -20,5 +19,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       newestOnTop
       draggable
     />
+    </Provider>
   </React.StrictMode>,
 );
