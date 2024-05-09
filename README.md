@@ -1,8 +1,52 @@
-# React + Vite
+# E-commerce Demo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a sample application that demonstrates an E-commerce website using the MERN stack. The application loads 
+products a MongoDB database and displays them. Users can select to display products in a single category. Users can 
+click on any product to get more information including pricing, reviews and rating. Users can select items and 
+add them to their shopping cart
 
-Currently, two official plugins are available:
+## Import Data
+I have included a data folder in this repo. Inside that folder will be 2 folders called cart and item. These 2 folders contain a mongodump of the 2 collections that I use in this ecommerce demo. You can use the [import-data.sh](data/import-data.sh) script to import these 2 dumps to an ecommerce database, then you will have the same content that I have for this demo.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live Demonstration
+
+The E-commerce demo can be [viewed online here](https://figmafire.vercel.app/).
+
+Here are screenshots that show the E-commerce demo application in use.
+
+**Home Page**
+![Home Page](/src/screenshots/home.png "Optional Title")
+
+---
+
+**Item Detail Page**
+![Item Detail](/screenshots/itemDetail.png?raw=true "Optional Title")
+
+---
+
+**Shopping Cart**
+![Shopping Cart](/screenshots/shoppingCart.png?raw=true "Shopping Cart")
+
+## Getting Started
+To get started  you can simply clone this `ecommerce-demo` repository and install the dependencies.
+
+Clone the `ecommerce-demo` repository using git:
+
+```bash
+git clone https://github.com/joblessgod/FigmaFireProject
+```
+
+Install dependencies with this command:
+```bash
+npm install
+```
+
+Run the application with this command:
+```bash
+npm run dev
+```
+
+## Tech Stack
+* Node.js
+* Express.js
+* Tailwind
