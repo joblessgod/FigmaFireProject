@@ -27,7 +27,7 @@ export default function Signup() {
         role: e.target.role.value,
       })
       .then((res) => {
-        toast.success("Succesfully.");
+        toast.success("Account Created, Now login here.");
         setIsLoading(false);
         navigate("/login");
       })
@@ -115,13 +115,12 @@ export default function Signup() {
 
           <p className="text-gray-light">
             Have an Account?
-            <Link to={"/login"} className="text-[#558cf3]">
-              Login
+            <Link to={"/login"} title="Login here after creating an account." className="text-[#558cf3]">
+               Login here.
             </Link>
           </p>
         </div>
       </div>
-      <img src={footerImg} className="container my-[40px]" />
     </>
   );
 }

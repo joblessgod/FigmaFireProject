@@ -12,7 +12,7 @@ export default function Footer() {
               placeholder="Enter email address"
               className="form-control w-auto"
             />
-            <button className="bg-secondary px-2 py-1 text-xs text-white">
+            <button className="btn">
               Sign Up
             </button>
           </div>
