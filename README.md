@@ -47,6 +47,8 @@ npm run dev
 ```
 
 ## Tech Stack
-* Node.js
+* MongoDB
 * Express.js
+* Node.js
+* React.js
 * Tailwind
