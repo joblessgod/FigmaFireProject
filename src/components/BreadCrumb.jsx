@@ -11,7 +11,7 @@ export default function BreadCrumb({ title, links }) {
           </h1>
           {links.map((link, index) => {
             return (
-              <Link
+              <Link key={index}
                 className={`mr-2 ${index + 1 == links.length ? "text-secondary" : ""}`}
                 to={link.url}
               >

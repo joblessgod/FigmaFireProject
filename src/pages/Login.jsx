@@ -2,8 +2,13 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import BreadCrumb from "../components/BreadCrumb";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
+import { setReduxUser } from "../redux/slice/user";
 
 export default function Login() {
+  const dispatch = useDispatch(); // we can only call dispath via useDispatch();
+
   const [formData, setFormData] = useState({
     email: "b@b.com",
     password: "password",
@@ -11,10 +16,21 @@ export default function Login() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    axios.post("https://ecommerce-sagartmg2.vercel.app/api/users/login", {
-      email: e.target.email.value,
-      password: e.target.password.value,
-    });
+    axios
+      .post("https://ecommerce-sagartmg2.vercel.app/api/users/login", {
+        email: e.target.email.value,
+        password: e.target.password.value,
+      })
+      .then((res) => {
+        // console.log(res.data.user);
+        toast.success("Successfully Logged In.");
+        dispatch(setReduxUser(res.data.user))
+        localStorage.setItem("token",res.data.access_token)
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("Bad Request!");
+      });
   }
 
   return (

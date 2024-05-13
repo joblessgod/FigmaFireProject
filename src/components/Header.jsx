@@ -11,11 +11,13 @@ import { IoSearch } from "react-icons/io5";
 import { FaAngleDown } from "react-icons/fa";
 import { FaCartArrowDown } from "react-icons/fa6";
 import { MdOutlinePhoneInTalk } from "react-icons/md";
+import { useSelector } from "react-redux";
 
 let emailId = "mhhasanul@gmail.com";
 let phoneNo = "(12345)67890";
 
 export default function Header() {
+  const user = useSelector((store) => store.user.value)
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   function toggleSideMenu() {
@@ -44,6 +46,10 @@ export default function Header() {
             </div>
 
             <div className="justify-between">
+
+              <Link to="/login" className="font-sans">
+                Login <IoLogIn className="inline-block" />
+              </Link>
               <select className="bg-transparent font-sans ">
                 <FaAngleDown className="inline-block" />
                 <option className="dropdown">English</option>
@@ -64,10 +70,6 @@ export default function Header() {
                 <option className="dropdown">NPR</option>
                 <option className="dropdown">INR</option>
               </select>
-
-              <Link to="/login" className="font-sans">
-                Login <IoLogIn className="inline-block" />
-              </Link>
               <span className="font-sans">
                 Wishlist <FaHeart className="inline-block" />
               </span>
