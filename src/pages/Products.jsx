@@ -1,5 +1,6 @@
 import React from "react";
 import { FaCartPlus } from "react-icons/fa";
+import BreadCrumb from "../components/BreadCrumb";
 
 export default function Products(props) {
   return (

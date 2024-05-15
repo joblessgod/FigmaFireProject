@@ -39,13 +39,13 @@ export default function Signup() {
   }
   return (
     <>
-      <BreadCrumb 
-      title={"Sign Up"}
-      links={[
-        {title: "Home", url:"/"},
-        {title: ". Pages", url:"/pages"},
-        {title: ". Signup", url:"#"},
-      ]}
+      <BreadCrumb
+        title={"Sign Up"}
+        links={[
+          { title: "Home", url: "/" },
+          { title: ". Pages", url: "/pages" },
+          { title: ". Signup", url: "#" },
+        ]}
       />
       <div className="mx-auto mt-[67px] flex w-[302px] items-center justify-center p-[28px] shadow-lg md:w-[544px]">
         <div className="font-lato space-y-2 p-[24px]  ">
@@ -109,14 +109,17 @@ export default function Signup() {
             </div>
 
             <button disabled={isLoading} type="submit" className="btn w-full">
-              {!isLoading ? "Sign in" : "Loading..."}
+              {!isLoading ? "Log in" : "Loading..."}
             </button>
           </form>
 
           <p className="text-gray-light">
-            Have an Account?
-            <Link to={"/login"} title="Login here after creating an account." className="text-[#558cf3]">
-               Login here.
+            Already a Member?{" "}
+            <Link
+              to={"/login"}
+              className="text-[#558cf3]"
+            >
+              Log in.
             </Link>
           </p>
         </div>

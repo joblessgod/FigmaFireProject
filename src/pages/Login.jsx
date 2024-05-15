@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BreadCrumb from "../components/BreadCrumb";
 import axios from "axios";
 import { useDispatch } from "react-redux";
@@ -8,6 +8,7 @@ import { setReduxUser } from "../redux/slice/user";
 
 export default function Login() {
   const dispatch = useDispatch(); // we can only call dispath via useDispatch();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     email: "b@b.com",
@@ -22,10 +23,10 @@ export default function Login() {
         password: e.target.password.value,
       })
       .then((res) => {
-        // console.log(res.data.user);
+        localStorage.setItem("token", res.data.access_token);
+        dispatch(setReduxUser(res.data.user));
         toast.success("Successfully Logged In.");
-        dispatch(setReduxUser(res.data.user))
-        localStorage.setItem("token",res.data.access_token)
+        navigate("/");
       })
       .catch((err) => {
         console.log(err);
@@ -82,9 +83,9 @@ export default function Login() {
               />
             </div>
 
-            <a href="/forgetPassword" className="text-[#9096B2]">
-              Forget Your Password
-            </a>
+            <Link to="/forgetYourPassword" className="mt-4 text-[#9096B2]">
+              Forget Password ?
+            </Link>
 
             <div className="text-gray-light">
               <input type="checkbox"></input> Stay logged in
@@ -95,13 +96,13 @@ export default function Login() {
             </button>
           </form>
           <p className="text-gray-light">
-            Don’t have an Account?
+            Not a member?{" "}
             <Link
               to={"/signup"}
               title="Create a New Account"
               className="text-[#558cf3]"
             >
-              Create account
+              Create an Account
             </Link>
           </p>
         </div>

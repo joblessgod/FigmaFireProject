@@ -11,13 +11,13 @@ import { IoSearch } from "react-icons/io5";
 import { FaAngleDown } from "react-icons/fa";
 import { FaCartArrowDown } from "react-icons/fa6";
 import { MdOutlinePhoneInTalk } from "react-icons/md";
-import { useSelector } from "react-redux";
-
-let emailId = "mhhasanul@gmail.com";
-let phoneNo = "(12345)67890";
+import { useDispatch, useSelector } from "react-redux";
+import { setLogOut } from "../redux/slice/user";
 
 export default function Header() {
-  const user = useSelector((store) => store.user.value)
+  const user = useSelector((store) => store.user.value);
+  const dispatch = useDispatch();
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   function toggleSideMenu() {
@@ -45,11 +45,7 @@ export default function Header() {
               </a>
             </div>
 
-            <div className="justify-between">
-
-              <Link to="/login" className="font-sans">
-                Login <IoLogIn className="inline-block" />
-              </Link>
+            <div className="flex justify-between">
               <select className="bg-transparent font-sans ">
                 <FaAngleDown className="inline-block" />
                 <option className="dropdown">English</option>
@@ -57,12 +53,7 @@ export default function Header() {
                 <option className="dropdown">Nepali</option>
                 <option className="dropdown">Hindi</option>
               </select>
-              {/* <span className="font-sans " >
-                  USD
-                  <FaAngleDown className="inline-block" />
-                </span> */}
 
-              {/* <select> */}
               <select className="bg-transparent font-sans">
                 <FaAngleDown className="inline-block" />
                 <option className="dropdown">USD</option>
@@ -70,9 +61,36 @@ export default function Header() {
                 <option className="dropdown">NPR</option>
                 <option className="dropdown">INR</option>
               </select>
-              <span className="font-sans">
+
+              <div>
+                {user ? (
+                  <>
+                    <span>
+                      {user?.name} ({user?.role})
+                    </span>{" "}
+                    <span
+                      className="cursor-pointer"
+                      onClick={() => {
+                        dispatch(setLogOut());
+                      }}
+                    >
+                      Logout{" "}
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    <Link to="/login" className="font-sans">
+                      Login
+                      <IoLogIn className="inline-block" />
+                    </Link>
+                  </>
+                )}
+              </div>
+
+              {/* <span className="font-sans">
                 Wishlist <FaHeart className="inline-block" />
-              </span>
+              </span> */}
+
               <span className="font-sans">
                 <FaCartArrowDown className="inline-block" />
               </span>
