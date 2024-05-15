@@ -72,6 +72,7 @@ export default function Header() {
                       className="cursor-pointer"
                       onClick={() => {
                         dispatch(setLogOut());
+                        localStorage.removeItem("token")
                       }}
                     >
                       Logout{" "}
