@@ -12,7 +12,7 @@ import { FaAngleDown } from "react-icons/fa";
 import { FaCartArrowDown } from "react-icons/fa6";
 import { MdOutlinePhoneInTalk } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
-import { setLogOut } from "../redux/slice/user";
+import { setLogOut } from "../../redux/slice/user";
 
 export default function Header() {
   const user = useSelector((store) => store.user.value);

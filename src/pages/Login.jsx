@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import BreadCrumb from "../components/BreadCrumb";
+import BreadCrumb from "../components/Common/BreadCrumb";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";

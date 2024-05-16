@@ -1,5 +1,5 @@
 import React from "react";
-import BreadCrumb from "../components/BreadCrumb";
+import BreadCrumb from "../components/Common/BreadCrumb";
 
 export default function Blogs() {
   return (
@@ -14,5 +14,5 @@ export default function Blogs() {
       />
       <div>Blogs</div>
     </>
-  );
+  );    
 }

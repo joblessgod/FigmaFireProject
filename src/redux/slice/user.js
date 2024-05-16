@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 export const userSlice = createSlice({
-    name: 'user',
+    name: 'cart',
     initialState: {
         value: null
     },

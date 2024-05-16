@@ -1,18 +1,20 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setReduxUser } from "./redux/slice/user";
 
 /* Pages Import */
-import Home from "./pages/Home";
+import Home from "./components/home/Home";
+import RootComponent from "./components/Common/RootComponent";
+import Slug from "./pages/products/Slug";
 import Blogs from "./pages/Blogs";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Contact from "./pages/Contact";
 import Pages from "./pages/Pages";
-import Products from "./pages/Products";
-import RootComponent from "./components/RootComponent";
-import axios from "axios";
-import { useDispatch } from "react-redux";
-import { setReduxUser } from "./redux/slice/user";
+import Product from "./pages/products/Product";
+import Products from "./pages/products/Product";
 
 const router = createBrowserRouter([
   {
@@ -23,10 +25,13 @@ const router = createBrowserRouter([
         path: "",
         element: <Home />,
       },
-
       {
-        path: "products",
-        element: <Products />,
+        path: "product",
+        element: <Products/>,
+      },
+      {
+        path: ":slug",
+        element: <Slug />,
       },
       {
         path: "pages",

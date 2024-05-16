@@ -1,8 +1,8 @@
-import Banner from "../pages/home/components/Banner";
+import Banner from "./Banner";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import Products from "../pages/Products";
+import Products from "../../pages/products/Product";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Skeleton from "react-loading-skeleton";
