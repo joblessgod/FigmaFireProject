@@ -16,6 +16,7 @@ import { setLogOut } from "../../redux/slice/user";
 
 export default function Header() {
   const user = useSelector((store) => store.user.value);
+  const cartItem = useSelector((store) => store.cart.value);
   const dispatch = useDispatch();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -72,7 +73,7 @@ export default function Header() {
                       className="cursor-pointer"
                       onClick={() => {
                         dispatch(setLogOut());
-                        localStorage.removeItem("token")
+                        localStorage.removeItem("token");
                       }}
                     >
                       Logout{" "}
@@ -92,9 +93,14 @@ export default function Header() {
                 Wishlist <FaHeart className="inline-block" />
               </span> */}
 
-              <span className="font-sans">
-                <FaCartArrowDown className="inline-block" />
-              </span>
+              <Link className="relative" to={"/cart"}>
+                <span className="absolute flex items-center font-sans">
+                  <FaCartArrowDown className="inline-block" />
+                  <div className=" items-center rounded-[50%] bg-secondary px-2 text-center font-Lato text-[16px]">
+                    {cartItem.length}
+                  </div>
+                </span>
+              </Link>
             </div>
           </nav>
         </div>

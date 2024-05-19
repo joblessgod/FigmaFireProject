@@ -2,8 +2,8 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <>
-      <div className="grid grid-flow-row gap-4 bg-[#EEEFFB] p-[50px] sm:grid-cols-2 md:grid-cols-4 md:place-content-center">
+    <div className="bg-[#EEEFFB]">
+      <div className="grid grid-flow-row gap-4 container p-[50px] sm:grid-cols-2 md:grid-cols-4 md:place-content-center">
         <div className="flex flex-col gap-4">
           <p className="text-[20px] font-bold">Hekto</p>
           <div className="flex">
@@ -56,6 +56,6 @@ export default function Footer() {
           </ul>
         </div>
       </div>
-    </>
+    </div>
   );
 }

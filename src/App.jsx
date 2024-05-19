@@ -13,8 +13,9 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Contact from "./pages/Contact";
 import Pages from "./pages/Pages";
-import Product from "./pages/products/Product";
-import Products from "./pages/products/Product";
+import LoadingScreen from "./components/Common/LoadingScreen";
+import Products from "./components/home/Product";
+import Cart from "./pages/Cart";
 
 const router = createBrowserRouter([
   {
@@ -26,16 +27,21 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "product",
-        element: <Products/>,
-      },
-      {
-        path: ":slug",
-        element: <Slug />,
+        path: "products",
+        children: [
+          {
+            path: ":slug",
+            element: <Slug />,
+          },
+        ],
       },
       {
         path: "pages",
         element: <Pages />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
       },
       {
         path: "blogs",
@@ -85,18 +91,7 @@ function App() {
   }, []);
 
   return (
-    <>
-      {isLoading ? (
-        <div className="flex h-screen items-center justify-center">
-          <button class="loader__btn">
-            <div class="loader"></div>
-            Loading
-          </button>
-        </div>
-      ) : (
-        <RouterProvider router={router} />
-      )}
-    </>
+    <>{isLoading ? <LoadingScreen /> : <RouterProvider router={router} />}</>
   );
 }
 
